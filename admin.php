@@ -2,24 +2,20 @@
 session_start();
 $connection = mysqli_connect('localhost', 'root', 'password', 'project');
 
-
-
 $query = "Use Hospital;";
 $connection->query($query);
 
 // Using SUM Function
 
-$query = "SELECT SUM(revenue_gen) ".
-"FROM volunteer ";
-$output = $connection->query($query);
+$query = "SELECT SUM(revenue_gen) FROM revenue";
 
+$output = $connection->query($query);
 if ($output->num_rows > 0) {
     // output data of each row
     while($row = $output->fetch_assoc()) {
        $value= $row["SUM(revenue_gen)"];
-
     }
-    $target=60000;
+    $target=6000000;
     $diff=round(($value/$target)*100,2);
 
 
