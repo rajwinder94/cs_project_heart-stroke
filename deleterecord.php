@@ -4,7 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "password";
 $dbname = "project";
- 
+
 
 
 
@@ -16,7 +16,7 @@ $sql="DELETE FROM volunteer WHERE canvasser_ID='$id'";
 if(mysqli_query($conn,$sql)){
 $_SESSION['delete']="set";
 
- header("Location: http://localhost:8888/project/updatesuccess.php");
+ header("Location: http://localhost/cs_project/updatesuccess.php");
 
 }
 else{

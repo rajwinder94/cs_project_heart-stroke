@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
+}
 
 $firstname = mysqli_real_escape_string($conn, $_REQUEST['fname']);
 $lastname = mysqli_real_escape_string($conn, $_REQUEST['lname']);
@@ -35,7 +35,7 @@ $sql="UPDATE volunteer SET first_name='$firstname', last_name='$lastname', addre
 
 if(mysqli_query($conn,$sql)){
 $_SESSION["record_updated"] = "set";
- header("Location: http://localhost:8888/project/updatesuccess.php");
+ header("Location: http://localhost/cs_project/updatesuccess.php");
 
 
 }

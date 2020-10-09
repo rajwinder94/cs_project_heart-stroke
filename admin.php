@@ -1,12 +1,12 @@
 <?php
 session_start();
 $connection = mysqli_connect('localhost', 'root', 'password', 'project');
-        
-    
-    
+
+
+
 $query = "Use Hospital;";
 $connection->query($query);
-    
+
 // Using SUM Function
 
 $query = "SELECT SUM(revenue_gen) ".
@@ -19,28 +19,28 @@ if ($output->num_rows > 0) {
        $value= $row["SUM(revenue_gen)"];
 
     }
-    $target=60000;  
+    $target=60000;
     $diff=round(($value/$target)*100,2);
 
-    
-    
+
+
 } else {
     echo "0 results";
 }
 ?>
-<?php 
+<?php
 $con = mysqli_connect('localhost', 'root', 'password', 'project');
-         
+
 $sql = "SELECT * FROM revenue";
     $result = $con->query($sql);
-   
-?>   
-   
-      
+
+?>
+
+
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
-		
+
 <title>Admin Portal</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,7 @@ margin: 0 auto
  .margin {margin-bottom: 45px;}
  #hov{font-size: 20px;}
  #hov:hover {color:red;}
- 
+
  p, span, ul, li, button {
   font-family: inherit;
   font-size: inherit;
@@ -149,19 +149,19 @@ strong {
               <div class="col-lg-3">
               <img src="images/logo.jpg" style="margin-left:20%;" />
               </div>
-           <div class="col-lg-2">   
+           <div class="col-lg-2">
     <div class="collapse navbar-collapse" id="myNavbar" style="margin:2%">
-     
+
       <ul class="nav navbar-nav navbar-left">
         <li><a  href="logout.php"><span class="glyphicon glyphicon-log-out"></span>logout</a></li>
         <li><a  href="addrevenue.php"><span class="glyphicon glyphicon-plus-sign"></span>Add revenue</a></li>
-        
+
       </ul>
-      
+
     </div>
     </div>
     <div class="col-lg-6">
- 
+
     </div>
     <div style="margin-top:1%;margin-left:8%" class="col-lg-6">
     <h5 class="title" style="float: left;margin-top:0%"><span class="glyphicon glyphicon-usd"></span>raised this year:&nbsp;</h2> <p style="float: right;">Goal:<?php echo "$".$target?></p><div  class="progress">
@@ -175,12 +175,12 @@ strong {
     </div>
   </div>
   </div>
-     
- 
-  			 </nav> 
+
+
+  			 </nav>
   		</div>
-  		
-<div class="container" style="margin-left:5%">	 
+
+<div class="container" style="margin-left:5%">
 
   <div class="row">
     <div class="col-md-12">
@@ -197,13 +197,13 @@ strong {
     <div class="col-sm-4">
       <div class="tile red">
         <h3 class="title"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp; <a href="updatesuccess.php">Volunteer</a></h3>
-        
+
       </div>
     </div>
     <div class="col-sm-4">
       <div class="tile orange">
        <h3 class="title"><span class="glyphicon glyphicon-bookmark"></span>&nbsp; <a href="kittrack.php">Kit Tracker</a></h3>
-        
+
       </div>
     </div>
   </div>
@@ -211,19 +211,19 @@ strong {
     <div class="col-sm-4">
       <div class="tile green">
         <h3 class="title"><span class="glyphicon glyphicon-edit"></span>&nbsp;<a href="telerecrute.php">Change Status</a></h3>
-       
+
       </div>
     </div>
     <div class="col-sm-4">
       <div class="tile blue">
         <h3 class="title"><span class="glyphicon glyphicon-file"></span>&nbsp;<a href="report.php">Pull Reports</a></h3>
-        
+
       </div>
-    </div>    
+    </div>
   </div>
    <div class="row">
     <div class="col-sm-12">
-    
+
     </div>
    </div>
   <div class="row">
@@ -234,7 +234,7 @@ strong {
 </div>
 </div> <!-- main container ends  -->
 
-  
+
 </div>
 </body>
 </html>
