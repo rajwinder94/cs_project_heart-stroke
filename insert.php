@@ -24,7 +24,8 @@ $yofservice = mysqli_real_escape_string($conn, $_REQUEST['yearofserv']);
 $sql="INSERT INTO Volunteer(first_name,last_name,address,city,pin_code,phone,email,years_of_service) VALUES
 ('$firstname','$lastname','$address','$city','$pincode','$phoneno','$email','$yofservice')";
 if(mysqli_query($conn,$sql)){
-header("Location: http://localhost/cs_project/updateadd.php");
+$_SESSION["record_inserted"] = "set";
+header("Location: http://localhost/cs_project/insert_success.php");
 }
 else{
 echo "error";

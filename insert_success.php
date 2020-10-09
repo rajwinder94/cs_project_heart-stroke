@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -123,12 +121,12 @@ text-decoration:none;
 
     </div>
     <div class="collapse navbar-collapse" id="myNavbar" style="margin:2%">
-
-      <ul class="nav navbar-nav navbar-center">
+     <ul class="nav navbar-nav navbar-center">
       <li><a  href="admin.php"><span class="glyphicon glyphicon-home"></span>Home</a></li>
         <li><a  href="logout.php"><span class="glyphicon glyphicon-log-out"></span>logout</a></li>
 
       </ul>
+
     </div>
     </div>
     </div>
@@ -138,65 +136,64 @@ text-decoration:none;
   		</div>
 
 <div class="container" style="margin-left:5%">
-<div class="row">
-  <h2>Report</h2>
+<div class="container">
+  <h2>Volunteer Portal</h2>
+  <script>alert("Record inserted");</script>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="tile green">
+       <h3 class="title"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;<a href="newvolunteer.php">Add a new record</a></h3>
 
-<?php
-$con = mysqli_connect('localhost', 'root', 'password', 'project');
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tile blue">
+        <h3 class="title"><span class="glyphicon glyphicon-repeat"></span>&nbsp; <a href="updatevol.php">Update a record</a></h3>
 
-        // connect to database
-        if (!$con) {
-            die('Could not connect: ' . mysql_error());
-        }
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="tile red">
+       <h3 class="title"><span class="glyphicon glyphicon-trash"></span>&nbsp; <a href="deletevol.php">Delete record</a></h3>
 
-      $field = mysqli_real_escape_string($con,$_POST['field']);
-      $filter = mysqli_real_escape_string($con,$_POST['filter']);
-      $value = mysqli_real_escape_string($con,$_POST['value']);
-     ?>
-     <table class="table table-striped">
-     <thead class="thead-default">
-     <tr>
-       <th><?php echo "SNO";?></th>
-     <th><?php echo $field;?></th>
+      </div>
+    </div>
+  </div>
 
-      </tr>
-      </thead>
-      <tbody>
-     <?php
 
-      $sql = "SELECT $field FROM volunteer WHERE $filter='$value'";
-    $result = $con->query($sql);
-     if ($result->num_rows > 0) {
-    // output data of each row
-    $sno=1;
 
-    while($row = $result->fetch_assoc()) {
+  <!-- Modal -->
 
-      ?>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
 
-         <tr><td><?php echo $sno; ?></td>
-          <td><?php echo $row["$field"]; ?></td></tr>
+      <!-- Modal content-->
+      <div class="modal-content">
+      <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+            <h3>Admin Login</h3>
+          </div>
+   <div class="modal-body">
+            <form method="post" action="check.php" name="login_form">
+              <p><input type="text" class="span3" name="uid" id="uid" placeholder="username"></p>
+              <p><input type="password" class="span3" name="passwd" id="passwd" placeholder="Password"></p>
+              <p><button type="submit" class="btn btn-primary">Sign in</button>
+              </p>
+            </form>
 
-          <?php
+      <div class="modal-footer">
 
-          $sno++;
-    }
+          </div>
+    </div>
+  </div>
+</div>
+<?php unset($_SESSION["record_updated"]);
+unset($_SESSION["delete"]);
 
-} else {
-    echo "0 results";
-}
+?>
 
-$con->close();
-
- ?>
-
- </tbody>
-</table>
-
- </div>
 
 </div> <!-- main container ends  -->
-
 
 </body>
 </html>
