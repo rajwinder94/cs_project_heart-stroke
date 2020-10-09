@@ -35,6 +35,7 @@ $sql="UPDATE volunteer SET first_name='$firstname', last_name='$lastname', addre
 
 if(mysqli_query($conn,$sql)){
 $_SESSION["record_updated"] = "set";
+echo $_SESSION["id"];
  header("Location: http://localhost/cs_project/updatesuccess.php");
 
 
